@@ -1,0 +1,36 @@
+<html>
+<head>
+	<!-- Load plotly.js into the DOM -->
+	<script src='https://cdn.plot.ly/plotly-2.1.0.min.js'></script>
+</head>
+
+<body>
+	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+</body>
+
+<script type="javascript">
+var url_string = window.location.href;
+var url = new URL(url_string);
+var c = url.searchParams.get("c");
+console.log(c);
+var decoded = decodeURIComponent(c);
+var decodedJSON = JSON.parse(decoded);
+console.log(decodedJSON);
+
+var data = [{
+  type: "pie",
+  values: [2, 3, 4, 4],
+  labels: ["Wages", "Operating expenses", "Cost of sales", "Insurance"],
+  textinfo: "label+percent",
+  insidetextorientation: "radial"
+}]
+
+var layout = [{
+  height: 700,
+  width: 700
+}]
+
+Plotly.newPlot('myDiv', data, layout)
+
+</script>
+</html>
