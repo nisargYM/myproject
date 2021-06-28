@@ -17,7 +17,7 @@ var decoded = decodeURIComponent(c);
 var decodedJSON = JSON.parse(decoded);
 console.log(decodedJSON);
 var values = [];
-var lables = [];
+var labels = [];
 for(var i=0;i<decodedJSON.length;i++){
 	values[i]=parseInt(decodedJSON[i].doc_count);
 	labels[i]=decodedJSON[i].key;
