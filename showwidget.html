@@ -19,8 +19,8 @@ console.log(decodedJSON);
 var values = [];
 var lables = [];
 for(var i=0;i<decodedJSON.length;i++){
-	values=parseInt(decodedJSON[i]);
-	labels=decodedJSON[i];
+	values=parseInt(decodedJSON[i].doc_count);
+	labels=decodedJSON[i].key;
 }
 console.log(values);
 console.log(labels);
