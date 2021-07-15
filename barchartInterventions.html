@@ -1,0 +1,42 @@
+<html>
+<head>
+	<!-- Load plotly.js into the DOM -->
+	<script src='https://cdn.plot.ly/plotly-2.1.0.min.js'></script>
+</head>
+
+<body>
+	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+</body>
+
+<script>
+var url_string = window.location.href;
+var url = new URL(url_string);
+var c = url.searchParams.get("c");
+console.log(c);
+var decoded = decodeURIComponent(c);
+var decodedJSON = JSON.parse(decoded);
+console.log(decodedJSON);
+var values = [];
+var labels = [];
+for(var i=0;i<decodedJSON.length;i++){
+	values[i]=parseInt(decodedJSON[i].doc_count);
+	labels[i]=decodedJSON[i].key;
+}
+console.log(values);
+console.log(labels);
+
+var data = [{
+  type: "bar",
+  y: values,
+  x: labels
+}]
+
+var layout = [{
+  height: 700,
+  width: 700
+}]
+
+Plotly.newPlot('myDiv', data, layout)
+
+</script>
+</html>
