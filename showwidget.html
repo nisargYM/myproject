@@ -26,27 +26,17 @@ console.log(values);
 console.log(labels);
 
 var data = [{
-  type: "bar",
-  y: values,
-  x: labels
+  type: "pie",
+  values: values,
+  labels: labels,
+  textinfo: "label+percent",
+  insidetextorientation: "radial"
 }]
 
-var layout = {
-  height: 360,
-  width: 360,
-  title: 'Count of Interventions',
-  font:{
-    family: 'Raleway, sans-serif'
-  },
-  showlegend: false,
-  xaxis: {
-    tickangle: -45
-  },
-  yaxis: {
-    zeroline: false,
-    gridwidth: 2
-  }
-};
+var layout = [{
+  height: 300,
+  width: 300
+}]
 
 Plotly.newPlot('myDiv', data, layout)
 
