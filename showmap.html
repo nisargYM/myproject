@@ -13,7 +13,7 @@
   
         $(function () {
             $("#submit").click(function () {
-                if ($("#username").val() && $("#password").val()) {
+                if ($("#username").val() ) {
                     window.parent.postMessage(JSON.stringify({
                         event_code: 'ym-client-event', data: JSON.stringify({
                             event: {
