@@ -4,10 +4,33 @@
 </head>
 
 <body>
-<iframe width="100%" height="100" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://www.maps.ie/draw-radius-circle-map/">Easy radius map</a>
+<iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://www.maps.ie/draw-radius-circle-map/">Easy radius map</a>
 <form name="userData">
   <input type="text" name="username">
+  <button id="submit">Submit</button>
 </form>
+<script type="text/javascript">
+  
+        $(function () {
+            $("#submit").click(function () {
+                if ($("#username").val() && $("#password").val()) {
+                    window.parent.postMessage(JSON.stringify({
+                        event_code: 'ym-client-event', data: JSON.stringify({
+                            event: {
+                                code: "user-details",
+                                data: {
+                                    login: $("#username").val()
+                                }
+                            }
+                        })
+                    }), '*');
+                } else {
+                    alert("Please enter username");
+                }
+            })
+        })
+    
+</script>
 </body>
 
 
